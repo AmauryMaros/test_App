@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 # Replace with your actual access token
-access_token = st.secrets["dropbox"]["access_token"]
+access_token = st.secrets["dropbox"]["dropbox_access_token"]
 
 # Initialize Dropbox client
 dbx = dropbox.Dropbox(access_token)
