@@ -54,15 +54,15 @@ if response.status_code == 200:
 else:
       st.error("Failed to download file. Please check the URL.")
 
-# Get the content of the file
-response = requests.get(pheatmap_url)
-# Check if the request is successful
-if response.status_code == 200:
-    # Get the file content
-    file_content = response.content
-    pheatmap = Image.open(BytesIO(file_content))
-else:
-      st.error("Failed to download file. Please check the URL.")
+# # Get the content of the file
+# response = requests.get(pheatmap_url)
+# # Check if the request is successful
+# if response.status_code == 200:
+#     # Get the file content
+#     file_content = response.content
+#     pheatmap = Image.open(BytesIO(file_content))
+# else:
+#       st.error("Failed to download file. Please check the URL.")
 # mgcsts_samples = pd.read_csv("volume/data/samples_w_mgCSTs.csv")
 # mgcsts = pd.read_csv("volume/data/mgCSTs.csv")
 # projects = pd.read_csv("volume/data/VIRGO_participants_anonymous.csv")
