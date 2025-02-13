@@ -5,6 +5,8 @@ import numpy as np
 from streamlit_pdf_viewer import pdf_viewer
 import requests
 from io import StringIO
+from io import BytesIO
+from PIL import Image
 
 st.set_page_config(layout="wide")
 st.sidebar.subheader("Contact")
@@ -18,7 +20,6 @@ projects_url = "https://www.dropbox.com/scl/fi/8es1gk08lt71wgum2mgqa/VIRGO_parti
 new_vs_old_url = "https://www.dropbox.com/scl/fi/opfvh3g451h2999hrs5ao/new_vs_old_mgcsts.csv?rlkey=q4b8k5cw8qd8pg6noq0934b6h&st=bexfo2l5&dl=1"
 pheatmap_url = "https://www.dropbox.com/scl/fi/vj5i7xgkxzrgy15zad016/pheatmap.png?rlkey=rou4sz8a8s12fhhr0hzid22fw&st=gwugusfx&dl=1"
 
-# Get the content of the file
 response = requests.get(mgcsts_samples_url)
 if response.status_code == 200:
       # Read CSV file from the response content
@@ -27,7 +28,6 @@ if response.status_code == 200:
 else:
       st.error("Failed to download file. Please check the URL.")
 
-# Get the content of the file
 response = requests.get(mgcsts_url)
 if response.status_code == 200:
       # Read CSV file from the response content
@@ -36,7 +36,6 @@ if response.status_code == 200:
 else:
       st.error("Failed to download file. Please check the URL.")
 
-# Get the content of the file
 response = requests.get(projects_url)
 if response.status_code == 200:
       # Read CSV file from the response content
@@ -45,7 +44,6 @@ if response.status_code == 200:
 else:
       st.error("Failed to download file. Please check the URL.")
 
-# Get the content of the file
 response = requests.get(new_vs_old_url)
 if response.status_code == 200:
       # Read CSV file from the response content
@@ -54,15 +52,14 @@ if response.status_code == 200:
 else:
       st.error("Failed to download file. Please check the URL.")
 
-# # Get the content of the file
-# response = requests.get(pheatmap_url)
-# # Check if the request is successful
-# if response.status_code == 200:
-#     # Get the file content
-#     file_content = response.content
-#     pheatmap = Image.open(BytesIO(file_content))
-# else:
-#       st.error("Failed to download file. Please check the URL.")
+response = requests.get(pheatmap_url)
+if response.status_code == 200:
+    # Get the file content
+    file_content = response.content
+    pheatmap = Image.open(BytesIO(file_content))
+else:
+      st.error("Failed to download file. Please check the URL.")
+      
 # mgcsts_samples = pd.read_csv("volume/data/samples_w_mgCSTs.csv")
 # mgcsts = pd.read_csv("volume/data/mgCSTs.csv")
 # projects = pd.read_csv("volume/data/VIRGO_participants_anonymous.csv")
