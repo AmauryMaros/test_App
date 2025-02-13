@@ -24,7 +24,7 @@ if response.status_code == 200:
       # Read CSV file from the response content
       data = StringIO(response.text)
       mgcsts_samples = pd.read_csv(data)
-  else:
+else:
       st.error("Failed to download file. Please check the URL.")
 
 # Get the content of the file
@@ -33,7 +33,7 @@ if response.status_code == 200:
       # Read CSV file from the response content
       data = StringIO(response.text)
       mgcsts = pd.read_csv(data)
-  else:
+else:
       st.error("Failed to download file. Please check the URL.")
 
 # Get the content of the file
@@ -42,7 +42,7 @@ if response.status_code == 200:
       # Read CSV file from the response content
       data = StringIO(response.text)
       projects = pd.read_csv(data)
-  else:
+else:
       st.error("Failed to download file. Please check the URL.")
 
 # Get the content of the file
@@ -51,7 +51,7 @@ if response.status_code == 200:
       # Read CSV file from the response content
       data = StringIO(response.text)
       new_vs_old = pd.read_csv(data)
-  else:
+else:
       st.error("Failed to download file. Please check the URL.")
 
 # Get the content of the file
@@ -61,7 +61,8 @@ if response.status_code == 200:
     # Get the file content
     file_content = response.content
     pheatmap = Image.open(BytesIO(file_content))
-  
+else:
+      st.error("Failed to download file. Please check the URL.")
 # mgcsts_samples = pd.read_csv("volume/data/samples_w_mgCSTs.csv")
 # mgcsts = pd.read_csv("volume/data/mgCSTs.csv")
 # projects = pd.read_csv("volume/data/VIRGO_participants_anonymous.csv")
