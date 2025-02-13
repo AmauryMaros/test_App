@@ -196,6 +196,6 @@ with st.expander("Show table"):
 # MgCSTS HEATMAP construction - button option
 
 st.subheader("MgCSTs heatmap")
-# st.image(pheatmap)
+st.image(pheatmap)
 # st.image("volume/medias/pheatmap.png")
 # pdf_viewer("medias/mgCST_VOG_heatmap.pdf")
