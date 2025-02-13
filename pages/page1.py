@@ -8,10 +8,18 @@ st.set_page_config(layout="wide")
 st.sidebar.subheader("Contact")
 st.sidebar.write("jholm@som.umaryland.edu")
 
-# # Function to lazy load CSV file with chunksize to handle large datasets
-# @st.cache_data()
-# def load_csv(file_path, usecols=None):
-#     return pd.read_csv(file_path, usecols=usecols)
+vog_mgss_coverage_url = "https://www.dropbox.com/scl/fi/w5z2jy00e9bavzmywa1u9/vog.mgSs.coverage.stats.csv?rlkey=bj4u6e03o6636msapbcc4k28z&st=su2nfasy&dl=1"
+
+gene_pa_count_folder_url = "https://www.dropbox.com/scl/fo/wjxid6mol8lo48vl8jzr0/AL0EOtz64YWOEiRLFcsUGcM?rlkey=faazmckkgyfpb2okuwz9k3la9&st=p3abajqj&dl=1"
+
+# vog mgss coverage
+response = requests.get(vog_mgss_coverage_url)
+if response.status_code == 200:
+      # Read CSV file from the response content
+      data = StringIO(response.text)
+      vog_mgss_coverage = pd.read_csv(data)
+else:
+      st.error("Failed to download file. Please check the URL.")
         
 ######################################## ----- DATA IMPORTATION ----- ########################################
 
