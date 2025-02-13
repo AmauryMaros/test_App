@@ -153,7 +153,7 @@ with col2 :
     st.plotly_chart(fig, use_container_width=True)
 
 with col3 :
-    new_vs_old = pd.read_csv("volume/data/new_vs_old_mgcsts.csv")
+    # new_vs_old = pd.read_csv("volume/data/new_vs_old_mgcsts.csv")
     bubble_data = new_vs_old.groupby(['new_mgCST', 'old_mgCST']).size().reset_index(name='count')
     bubble_data = bubble_data.rename(columns={"new_mgCST":"mgCST"})
 
@@ -199,6 +199,6 @@ with st.expander("Show table"):
 # MgCSTS HEATMAP construction - button option
 
 st.subheader("MgCSTs heatmap")
-st.image(pheatmap)
+# st.image(pheatmap)
 # st.image("volume/medias/pheatmap.png")
 # pdf_viewer("medias/mgCST_VOG_heatmap.pdf")
